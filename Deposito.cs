@@ -29,10 +29,10 @@ namespace Deposito
         }
         public void reponer1(decimal cantidadareponerdeagua)
         {
-            cantidadmaxima=antidadareponerdeagua+niveldeagua;
-            if (cantidadareponerdeagua > 0 && cantidadmaxima < 10000);  //Tamaño del depósito de pienso es de 1000 l.
-            niveldeagua=niveldeagua+cantidadareponerdeagua;
-              
+            cantidadmaxima = antidadareponerdeagua + niveldeagua;
+            if (cantidadareponerdeagua > 0 && cantidadmaxima < 10000) ;  //Tamaño del depósito de pienso es de 1000 l.
+            niveldeagua = niveldeagua + cantidadareponerdeagua;
+
 
 
 
@@ -40,26 +40,31 @@ namespace Deposito
         public void reponer2(decimal cantidadareponerdepienso)
         {
 
-            cantidadmaxima2=cantidadareponerdepienso+niveldepienso;
+            cantidadmaxima2 = cantidadareponerdepienso + niveldepienso;
             if (cantidadareponerdepienso > 0 && cantidadmaxima2 < 5000)  //Tamaño del depósito de pienso es de 5000 kg. 
-            niveldepienso=niveldepienso+cantidadareponerdepienso;        }
+                niveldepienso = niveldepienso + cantidadareponerdepienso;
+        }
 
 
         public decimal consumo1(decimal cantidadaretirardeagua)
         {
             decimal retirado1 = 0; //Cantidad que se retira
             if (cantidadaretirardeagua > 0 && cantidadaretirardeagua <= niveldeagua)
-            {   retirado1=cantidadaretirardeagua;
-            niveldeagua=niveldeagua-cantidadaretirardeagua;}
+            {
+                retirado1 = cantidadaretirardeagua;
+                niveldeagua = niveldeagua - cantidadaretirardeagua;
+            }
 
             return retirado1;
         }
         public decimal consumo2(decimal cantidadaretirardepienso)
         {
-            decimal retirado2=0; //Cantidad que se retira
+            decimal retirado2 = 0; //Cantidad que se retira
             if (cantidadaretirardepienso > 0 && cantidadaretirardepienso <= niveldepienso)
-            {   retirado2=cantidadaretirardepienso;
-                niveldepienso=niveldepienso-cantidadaretirardepienso;}
+            {
+                retirado2 = cantidadaretirardepienso;
+                niveldepienso = niveldepienso - cantidadaretirardepienso;
+            }
             return retirado2;
         }
 
