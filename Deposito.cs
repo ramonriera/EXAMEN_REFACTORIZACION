@@ -15,13 +15,13 @@ namespace Deposito
      */
     class Deposito
     {
-        private decimal niveldeagua;
+        private decimal NivelAgua; //REFACTORIZADO
         private decimal niveldepienso;
         private decimal cantidadmaxima;      //La cantidad máxima a reponer no puede superar el tamaño del DEPÓSITO DE AGUA, se comprueba antes de actualizar los niveles. 
         private decimal cantidadmaxima2;     //La cantidad máxima a reponer no puede superar el tamaño del DEPÓSITO DE PIENSO, se comprueba antes de actualizar los niveles. 
         public decimal Niveldeagua
         {
-            get { return niveldeagua; }
+            get { return NivelAgua; }
         }
         public decimal Niveldepienso
         {
@@ -29,9 +29,9 @@ namespace Deposito
         }
         public void reponer1(decimal cantidadareponerdeagua)
         {
-            cantidadmaxima = antidadareponerdeagua + niveldeagua;
+            cantidadmaxima = antidadareponerdeagua + NivelAgua;
             if (cantidadareponerdeagua > 0 && cantidadmaxima < 10000) ;  //Tamaño del depósito de pienso es de 1000 l.
-            niveldeagua = niveldeagua + cantidadareponerdeagua;
+            NivelAgua = NivelAgua + cantidadareponerdeagua;
 
 
 
@@ -49,10 +49,10 @@ namespace Deposito
         public decimal consumo1(decimal cantidadaretirardeagua)
         {
             decimal retirado1 = 0; //Cantidad que se retira
-            if (cantidadaretirardeagua > 0 && cantidadaretirardeagua <= niveldeagua)
+            if (cantidadaretirardeagua > 0 && cantidadaretirardeagua <= NivelAgua)
             {
                 retirado1 = cantidadaretirardeagua;
-                niveldeagua = niveldeagua - cantidadaretirardeagua;
+                NivelAgua = NivelAgua - cantidadaretirardeagua;
             }
 
             return retirado1;
