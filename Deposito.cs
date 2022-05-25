@@ -50,7 +50,9 @@ namespace Deposito
         {
             CantidadMaxima = CantidadAReponerAgua + NivelAgua;
             if (CantidadReponerAgua > 0 && CantidadMaxima < 10000) ;  //Tamaño del depósito de pienso es de 1000 l.
-            NivelAgua = NivelAgua + CantidadReponerAgua; //he quitado espacios
+            {
+                NivelAgua = NivelAgua + CantidadReponerAgua; //he quitado espacios
+            }
         }
 
         public void Reponer2(decimal CantidadReponerPienso)
@@ -62,22 +64,22 @@ namespace Deposito
         {
             CantidadMaxima2 = CantidadReponerPienso + NivelPienso;
             if (CantidadReponerPienso > 0 && CantidadMaxima2 < 5000)  //Tamaño del depósito de pienso es de 5000 kg. 
+            {
                 NivelPienso = NivelPienso + CantidadReponerPienso;
+            }
         }
 
         public decimal Consumo1(decimal CantidadRetirarAgua)
         {
-            decimal Retirado1 = 0; //Cantidad que se retira
-            if (CantidadRetirarAgua > 0 && CantidadRetirarAgua <= NivelAgua)
-            {
-                Retirado1 = CantidadRetirarAgua;
-                NivelAgua = NivelAgua - CantidadRetirarAgua;
-            }
-
-            return Retirado1;
+            return Consumo1Metodo(CantidadRetirarAgua);
         }
 
         public decimal Consumo2(decimal CantidadRetirarPienso)
+        {
+            return Consumo2Metodo(CantidadRetirarPienso);
+        }
+
+        private decimal Consumo2Metodo(decimal CantidadRetirarPienso)
         {
             decimal Retirado2 = 0; //Cantidad que se retira
             if (CantidadRetirarPienso > 0 && CantidadRetirarPienso <= NivelPienso)
@@ -87,5 +89,17 @@ namespace Deposito
             }
             return Retirado2; ///<returns>Devuelve el resultado de Retirado2</returns>
         }
+
+        private decimal Consumo1Metodo(decimal CantidadRetirarAgua)
+        {
+            decimal Retirado1 = 0; //Cantidad que se retira
+            if (CantidadRetirarAgua > 0 && CantidadRetirarAgua <= NivelAgua)
+            {
+                Retirado1 = CantidadRetirarAgua;
+                NivelAgua = NivelAgua - CantidadRetirarAgua;
+            }
+            return Retirado1;
+        }
+
     }
 }
